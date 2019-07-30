@@ -71,11 +71,11 @@
     }  
     
     function handlePlaySuccess() {
-        console.log("Sound file is played successfully ...");
+        $("#logs").append("Sound file is played successfully ...");  
     }
     
     function handlePlayError(error) {
-        displayMediaError(error);
+        $("#logs").append("Error playing file: " + error.code);    
     }  
     
     function onDeviceReady() {
@@ -90,7 +90,7 @@
                 basePath = dirPath + "/";
             }
 
-            var mediaFilePath = basePath + (new Date()).getTime() + ".wav";
+            var mediaFilePath = basePath + (new Date()).getTime() + ".aac";
             
             var recordingSuccess = function() {
                 recordingCallback.recordSuccess(mediaFilePath);
